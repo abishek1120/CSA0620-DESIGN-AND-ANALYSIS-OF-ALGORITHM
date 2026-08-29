@@ -1,0 +1,32 @@
+Algorithm: GreedySetCover(U, S)
+
+Input:
+
+	* A universe of elements U
+	* A collection of subsets S = {S_1, S_2, ..., S_n} where each S_i ⊆ U
+
+Output:
+
+	* A collection of subsets that approximates the minimum set cover
+
+Steps:
+
+	1. Initialize an empty list Cover to store the selected subsets.
+	2. Initialize a set Uncovered containing all elements in U.
+	3. While Uncovered is not empty do:
+ a. Initialize BestSubset to null and MaxCovered to 0.
+ b. For each subset sub in S do:
+     i. Calculate Count = number of elements in (sub ∩ Uncovered).
+     ii. If Count > MaxCovered then:
+         
+		* Set MaxCovered = Count
+		* Set BestSubset = sub
+End If
+End For
+c. If BestSubset is null then:
+
+			* Return "No valid cover possible"
+End If
+d. Add BestSubset to Cover.
+e. Remove all elements of BestSubset from Uncovered.
+	4. Return Cover
